@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HabitFlow — Build Habits That Last</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">⬡</span>
+        HabitFlow
+      </a>
+      <ul class="nav__links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="#pricing" class="btn btn--sm">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero__badge">
+        <span class="badge__dot"></span>
+        Over 12,000 habits tracked this week
+      </div>
+      <h1 class="hero__title">
+        Build habits that<br />
+        <span class="gradient-text">actually stick.</span>
+      </h1>
+      <p class="hero__subtitle">
+        HabitFlow is the beautifully simple tracker that keeps you consistent,
+        motivated, and on track — every single day.
+      </p>
+      <div class="hero__actions">
+        <a href="#pricing" class="btn btn--primary btn--lg">
+          Get HabitFlow for $2.99
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
+      </div>
+      <div class="hero__social-proof">
+        <div class="avatars">
+          <img src="https://i.pravatar.cc/40?img=1" alt="User" class="avatar" />
+          <img src="https://i.pravatar.cc/40?img=2" alt="User" class="avatar" />
+          <img src="https://i.pravatar.cc/40?img=3" alt="User" class="avatar" />
+          <img src="https://i.pravatar.cc/40?img=4" alt="User" class="avatar" />
+          <img src="https://i.pravatar.cc/40?img=5" alt="User" class="avatar" />
+        </div>
+        <div class="proof-text">
+          <div class="stars">★★★★★</div>
+          <span>Loved by <strong>50,000+</strong> users</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup -->
+    <div class="hero__mockup">
+      <div class="mockup-card">
+        <div class="mockup-header">
+          <span class="mockup-title">Today's Habits</span>
+          <span class="mockup-date">May 3</span>
+        </div>
+        <div class="habit-list">
+          <div class="habit-item habit-item--done">
+            <div class="habit-check done">✓</div>
+            <div class="habit-info">
+              <span class="habit-name">Morning run</span>
+              <span class="habit-streak">🔥 14 day streak</span>
+            </div>
+            <div class="habit-ring done"></div>
+          </div>
+          <div class="habit-item habit-item--done">
+            <div class="habit-check done">✓</div>
+            <div class="habit-info">
+              <span class="habit-name">Read 30 minutes</span>
+              <span class="habit-streak">🔥 7 day streak</span>
+            </div>
+            <div class="habit-ring done"></div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-check"></div>
+            <div class="habit-info">
+              <span class="habit-name">Meditate</span>
+              <span class="habit-streak">⚡ 3 day streak</span>
+            </div>
+            <div class="habit-ring" style="--progress: 60%"></div>
+          </div>
+          <div class="habit-item">
+            <div class="habit-check"></div>
+            <div class="habit-info">
+              <span class="habit-name">Drink 8 glasses</span>
+              <span class="habit-streak">⚡ 5 day streak</span>
+            </div>
+            <div class="habit-ring" style="--progress: 40%"></div>
+          </div>
+        </div>
+        <div class="mockup-footer">
+          <div class="progress-bar-wrap">
+            <div class="progress-label">
+              <span>Daily progress</span><span class="progress-pct">50%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="logos">
+    <div class="container">
+      <p class="logos__label">As featured in</p>
+      <div class="logos__row">
+        <span class="logo-brand">ProductHunt</span>
+        <span class="logo-brand">TechCrunch</span>
+        <span class="logo-brand">Forbes</span>
+        <span class="logo-brand">Lifehacker</span>
+        <span class="logo-brand">Mashable</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to stay consistent</h2>
+      <p class="section-sub">No bloat. No subscription. Just the tools that help you win every day.</p>
+      <div class="features__grid">
+
+        <div class="feature-card feature-card--accent">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3>Streak Tracking</h3>
+          <p>Watch your streaks grow day by day. Lose a day and see exactly where you fell off so you can course-correct fast.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Daily Reminders</h3>
+          <p>Set smart notifications that arrive exactly when you need them — morning, afternoon, or evening.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>Progress Analytics</h3>
+          <p>Beautiful weekly and monthly charts that show your completion rates and long-term trends at a glance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Habit Scheduling</h3>
+          <p>Choose daily, weekday-only, or custom schedules per habit. Skip Sundays on your workout, not your reading.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Achievement Badges</h3>
+          <p>Unlock milestones and badges as you reach new streaks and completion goals. Progress feels rewarding.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Accountability Partner</h3>
+          <p>Share your habits and streaks with a friend. A little social pressure goes a long way toward staying consistent.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Simple by design</h2>
+      <p class="section-sub">From purchase to first tracked habit in under 60 seconds.</p>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Buy once, use forever</h3>
+            <p>No subscription, no hidden fees. Pay $2.99 and HabitFlow is yours. We believe great tools should be affordable.</p>
+          </div>
+        </div>
+
+        <div class="step-divider"></div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Add your habits</h3>
+            <p>Create habits in seconds. Choose a name, icon, schedule, and reminder time. Start with one or go straight to ten.</p>
+          </div>
+        </div>
+
+        <div class="step-divider"></div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Check in daily</h3>
+            <p>Tap to mark habits done each day. Watch your streaks grow. The longer the chain, the harder it is to break.</p>
+          </div>
+        </div>
+
+        <div class="step-divider"></div>
+
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Watch the results</h3>
+            <p>In weeks you'll see real change. Analytics show your strongest and weakest days so you can optimize your routine.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label">Reviews</div>
+      <h2 class="section-title">People who changed their lives</h2>
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"I've tried every habit app out there. HabitFlow is the only one I've stuck with past week two. The streak feature is genuinely addictive in the best way possible."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=8" alt="Sarah K." class="author-avatar" />
+            <div>
+              <strong>Sarah K.</strong>
+              <span>Fitness coach, London</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Bought it on a whim for $2.99. Best impulse purchase of the year. I've meditated 47 days straight."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=11" alt="Marcus T." class="author-avatar" />
+            <div>
+              <strong>Marcus T.</strong>
+              <span>Software engineer, NYC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Clean design, no clutter, does exactly what it promises. Finally an app that respects my attention."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=20" alt="Priya M." class="author-avatar" />
+            <div>
+              <strong>Priya M.</strong>
+              <span>Entrepreneur, Singapore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"The analytics page alone is worth it. I can see exactly which days I fail and why. Game changer."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=33" alt="David L." class="author-avatar" />
+            <div>
+              <strong>David L.</strong>
+              <span>Teacher, Toronto</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Recommended it to my entire team. We now have a shared accountability channel and everyone's on 30+ day streaks."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=47" alt="Elena R." class="author-avatar" />
+            <div>
+              <strong>Elena R.</strong>
+              <span>Product manager, Berlin</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Three months in — I've lost 12 lbs, read 8 books, and started journaling. All from tracking five habits."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/48?img=56" alt="James W." class="author-avatar" />
+            <div>
+              <strong>James W.</strong>
+              <span>Photographer, Austin</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">One price. Forever yours.</h2>
+      <p class="section-sub">No subscriptions. No upsells. Just a great app at an honest price.</p>
+
+      <div class="pricing__card">
+        <div class="pricing__badge">Most Popular</div>
+        <div class="pricing__header">
+          <span class="pricing__name">HabitFlow</span>
+          <div class="pricing__price">
+            <span class="price-currency">$</span>
+            <span class="price-amount">2</span>
+            <span class="price-cents">.99</span>
+          </div>
+          <span class="pricing__note">One-time payment · Lifetime access</span>
+        </div>
+
+        <ul class="pricing__features">
+          <li><span class="check">✓</span> Unlimited habits</li>
+          <li><span class="check">✓</span> Streak tracking &amp; history</li>
+          <li><span class="check">✓</span> Daily smart reminders</li>
+          <li><span class="check">✓</span> Progress analytics &amp; charts</li>
+          <li><span class="check">✓</span> Custom schedules per habit</li>
+          <li><span class="check">✓</span> Achievement badges</li>
+          <li><span class="check">✓</span> Accountability partner sharing</li>
+          <li><span class="check">✓</span> iCloud / Google sync</li>
+          <li><span class="check">✓</span> iOS &amp; Android app</li>
+          <li><span class="check">✓</span> All future updates included</li>
+        </ul>
+
+        <a href="#" class="btn btn--primary btn--full btn--xl" onclick="handlePurchase(event)">
+          Buy HabitFlow — $2.99
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="pricing__guarantee">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          30-day money-back guarantee. No questions asked.
+        </p>
+      </div>
+
+      <div class="pricing__compare">
+        <p>Compare: Most habit apps cost <s>$4.99–$9.99/month</s>. HabitFlow is a single $2.99 payment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+      <div class="faq__list">
+
+        <details class="faq__item">
+          <summary>Is this really a one-time payment?</summary>
+          <p>Yes, completely. Pay $2.99 once and the app is yours forever, including all future updates. We will never charge you again.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>What platforms does HabitFlow support?</summary>
+          <p>HabitFlow is available on iOS (iPhone &amp; iPad) and Android. Your data syncs seamlessly across all your devices via iCloud or Google account.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>What is your refund policy?</summary>
+          <p>We offer a full 30-day money-back guarantee. If HabitFlow isn't right for you, just email us within 30 days and we'll refund every penny, no questions asked.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>How many habits can I track?</summary>
+          <p>Unlimited. Track 1 or 100 — there are no artificial limits on how many habits you can add.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>Do you sell my data?</summary>
+          <p>Never. Your habit data is private and stored securely. We do not sell, share, or monetize your personal information in any way.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>What happens to my data if I switch phones?</summary>
+          <p>Everything syncs automatically through iCloud on iOS or your Google account on Android. Switch devices and pick up exactly where you left off.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FOOTER BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__blob"></div>
+        <h2>Start your first streak today.</h2>
+        <p>Join 50,000+ people building better habits for less than a cup of coffee.</p>
+        <a href="#pricing" class="btn btn--white btn--lg" onclick="handlePurchase(event)">
+          Get HabitFlow for $2.99
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo">
+            <span class="logo-icon">⬡</span>
+            HabitFlow
+          </a>
+          <p>Build habits that last. Simple, beautiful, and yours forever.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <span class="footer__col-title">Product</span>
+            <a href="#features">Features</a>
+            <a href="#how">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Reviews</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">Company</span>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">Support</span>
+            <a href="#">Help Center</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 HabitFlow. All rights reserved.</span>
+        <div class="footer__socials">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">◈</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PURCHASE MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal()">✕</button>
+      <div class="modal__icon">🎉</div>
+      <h3>You're one step away!</h3>
+      <p>Complete your purchase of <strong>HabitFlow</strong> for just <strong>$2.99</strong>.</p>
+      <div class="modal__form">
+        <input type="email" placeholder="Your email address" class="modal__input" />
+        <button class="btn btn--primary btn--full" onclick="completePurchase()">Complete Purchase — $2.99</button>
+      </div>
+      <p class="modal__fine">Secure checkout · 30-day money-back guarantee</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
