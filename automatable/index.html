@@ -8,6 +8,176 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── CAR STAGE ── */
+    .car-stage {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: #05050a;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #carCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      cursor: grab;
+    }
+    #carCanvas:active { cursor: grabbing; }
+
+    .car-stage__top {
+      position: absolute;
+      top: 88px;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .car-stage__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(34,197,94,0.9);
+      margin-bottom: 10px;
+    }
+    .car-stage__eyebrow::before,
+    .car-stage__eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: rgba(34,197,94,0.5);
+    }
+    .car-stage__title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1.05;
+      text-shadow: 0 0 40px rgba(0,0,0,0.8);
+    }
+    .car-stage__title span {
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .car-stage__hint {
+      position: absolute;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      pointer-events: none;
+      animation: fadeHint 3s ease 2s forwards;
+      opacity: 1;
+    }
+    @keyframes fadeHint {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    .hint-icon {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      animation: hintPulse 1.4s ease infinite;
+    }
+    @keyframes hintPulse {
+      0%,100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .car-stage__scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+    .scroll-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      font-weight: 600;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(34,197,94,0.6), transparent);
+      animation: scrollDrop 1.6s ease infinite;
+    }
+    @keyframes scrollDrop {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+    }
+
+    .car-stage__loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 5;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    .loader-ring {
+      width: 44px; height: 44px;
+      border: 2px solid rgba(34,197,94,0.15);
+      border-top-color: #22c55e;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ground glow */
+    .car-stage__glow {
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(22,163,74,0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -30,6 +200,33 @@
       </div>
     </div>
   </nav>
+
+  <!-- CAR STAGE -->
+  <section class="car-stage" id="carStage">
+    <canvas id="carCanvas"></canvas>
+
+    <div class="car-stage__top">
+      <div class="car-stage__eyebrow">Automatable Showcase</div>
+      <h1 class="car-stage__title">Performance.<br /><span>Automated.</span></h1>
+    </div>
+
+    <div class="car-stage__glow"></div>
+
+    <div class="car-stage__hint">
+      <div class="hint-icon">↔</div>
+      Drag to spin
+    </div>
+
+    <div class="car-stage__scroll">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <div class="car-stage__loading" id="carLoading">
+      <div class="loader-ring"></div>
+      <span class="loader-text">Loading model…</span>
+    </div>
+  </section>
 
   <!-- HERO -->
   <section class="hero">
@@ -432,6 +629,266 @@
       </div>
     </div>
   </footer>
+
+  <!-- THREE.JS CAR -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
+    const canvas  = document.getElementById('carCanvas');
+    const loading = document.getElementById('carLoading');
+    const stage   = document.getElementById('carStage');
+
+    // ── RENDERER ──
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(stage.clientWidth, stage.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.85;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    // ── SCENE ──
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x05050a);
+    scene.fog = new THREE.FogExp2(0x05050a, 0.035);
+
+    // ── CAMERA ──
+    const camera = new THREE.PerspectiveCamera(42, stage.clientWidth / stage.clientHeight, 0.1, 200);
+    camera.position.set(5.5, 2.2, 0.5);
+    camera.lookAt(0, 0.6, 0);
+
+    // ── CONTROLS ──
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enablePan    = false;
+    controls.enableZoom   = false;
+    controls.minPolarAngle = Math.PI / 5;
+    controls.maxPolarAngle = Math.PI / 2.1;
+    controls.autoRotate      = true;
+    controls.autoRotateSpeed = 1.8;
+    controls.enableDamping   = true;
+    controls.dampingFactor   = 0.06;
+    controls.target.set(0, 0.55, 0);
+
+    // ── LIGHTS ──
+    scene.add(new THREE.AmbientLight(0x112233, 1.2));
+
+    const key = new THREE.SpotLight(0xffffff, 80);
+    key.position.set(6, 10, 4);
+    key.angle = 0.45; key.penumbra = 0.4;
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    scene.add(key);
+
+    const fill = new THREE.SpotLight(0x2244ff, 20);
+    fill.position.set(-7, 4, -3);
+    fill.angle = 0.5; fill.penumbra = 0.6;
+    scene.add(fill);
+
+    const rim = new THREE.SpotLight(0xffffff, 30);
+    rim.position.set(-4, 3, 6);
+    rim.angle = 0.4; rim.penumbra = 0.5;
+    scene.add(rim);
+
+    const green = new THREE.PointLight(0x22c55e, 6, 12);
+    green.position.set(0, -0.4, 0);
+    scene.add(green);
+
+    // ── GROUND ──
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(40, 40),
+      new THREE.MeshStandardMaterial({ color: 0x080810, metalness: 0.7, roughness: 0.5 })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    // grid lines on ground
+    const gridHelper = new THREE.GridHelper(30, 30, 0x1a2a1a, 0x0f1a0f);
+    gridHelper.position.y = 0.001;
+    scene.add(gridHelper);
+
+    // ── LOAD CAR (Ferrari GLTF from Three.js examples) ──
+    const gltfLoader = new GLTFLoader();
+
+    function applyDarkPaint(car) {
+      const paintMat = new THREE.MeshStandardMaterial({
+        color: 0x1e1e22,
+        metalness: 0.92,
+        roughness: 0.12,
+        envMapIntensity: 2.0,
+      });
+      const glassMat = new THREE.MeshPhysicalMaterial({
+        color: 0x0d1520,
+        transmission: 0.6,
+        roughness: 0.05,
+        metalness: 0.1,
+        transparent: true,
+        opacity: 0.7,
+      });
+      const darkMat = new THREE.MeshStandardMaterial({
+        color: 0x0a0a0a, metalness: 0.9, roughness: 0.2
+      });
+      const rimMat = new THREE.MeshStandardMaterial({
+        color: 0x222228, metalness: 1.0, roughness: 0.08
+      });
+
+      car.traverse((child) => {
+        if (!child.isMesh) return;
+        child.castShadow = true;
+        child.receiveShadow = true;
+        const n = child.name.toLowerCase();
+        if (n.includes('glass') || n.includes('window') || n.includes('windshield')) {
+          child.material = glassMat;
+        } else if (n.includes('rim') || n.includes('wheel_') || n.includes('felge')) {
+          child.material = rimMat;
+        } else if (n.includes('tyre') || n.includes('tire') || n.includes('reifen')) {
+          child.material = darkMat;
+        } else if (n.includes('interior') || n.includes('innen') || n.includes('seat')) {
+          child.material = darkMat;
+        } else {
+          child.material = paintMat;
+        }
+      });
+    }
+
+    gltfLoader.load(
+      'https://threejs.org/examples/models/gltf/ferrari.glb',
+      (gltf) => {
+        const car = gltf.scene;
+        car.scale.setScalar(0.58);
+        car.position.y = 0.01;
+        applyDarkPaint(car);
+        scene.add(car);
+        loading.style.opacity = '0';
+        setTimeout(() => loading.style.display = 'none', 600);
+      },
+      undefined,
+      () => buildFallbackCar()
+    );
+
+    // ── FALLBACK: hand-built car if GLTF fails ──
+    function buildFallbackCar() {
+      const bodyMat  = new THREE.MeshStandardMaterial({ color: 0x1e1e24, metalness: 0.9, roughness: 0.15 });
+      const glassMat = new THREE.MeshStandardMaterial({ color: 0x0d1828, metalness: 0.1, roughness: 0.0, transparent: true, opacity: 0.65 });
+      const tireMat  = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.2, roughness: 0.8 });
+      const rimMat   = new THREE.MeshStandardMaterial({ color: 0x252530, metalness: 1.0, roughness: 0.05 });
+      const lightMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 2 });
+      const tailMat  = new THREE.MeshStandardMaterial({ color: 0xff1111, emissive: 0xff0000, emissiveIntensity: 2 });
+
+      const car = new THREE.Group();
+
+      const add = (geo, mat, x=0, y=0, z=0, rx=0, ry=0, rz=0) => {
+        const m = new THREE.Mesh(geo, mat);
+        m.position.set(x,y,z); m.rotation.set(rx,ry,rz);
+        m.castShadow = true;
+        car.add(m); return m;
+      };
+
+      // chassis
+      add(new THREE.BoxGeometry(4.0, 0.28, 1.85), bodyMat, 0, 0.38);
+      // lower body
+      add(new THREE.BoxGeometry(3.6, 0.52, 1.92), bodyMat, -0.1, 0.72);
+      // cabin
+      add(new THREE.BoxGeometry(1.85, 0.44, 1.78), bodyMat, -0.12, 1.08);
+      // hood slope (front)
+      const hoodMesh = add(new THREE.BoxGeometry(1.1, 0.22, 1.88), bodyMat, -1.3, 0.76);
+      hoodMesh.rotation.z = 0.14;
+      // trunk
+      add(new THREE.BoxGeometry(0.75, 0.18, 1.85), bodyMat, 1.35, 0.76);
+      // front bumper
+      add(new THREE.BoxGeometry(0.22, 0.32, 1.75), bodyMat, -1.9, 0.5);
+      // rear bumper
+      add(new THREE.BoxGeometry(0.18, 0.28, 1.75), bodyMat, 1.9, 0.48);
+      // side sills
+      add(new THREE.BoxGeometry(3.8, 0.12, 0.1), bodyMat, -0.1, 0.38, 0.98);
+      add(new THREE.BoxGeometry(3.8, 0.12, 0.1), bodyMat, -0.1, 0.38, -0.98);
+
+      // windshield
+      const ws = add(new THREE.BoxGeometry(0.08, 0.6, 1.6), glassMat, -0.56, 0.98);
+      ws.rotation.z = -0.55;
+      // rear glass
+      const rg = add(new THREE.BoxGeometry(0.08, 0.5, 1.55), glassMat, 0.78, 0.96);
+      rg.rotation.z = 0.45;
+      // side windows
+      add(new THREE.BoxGeometry(1.55, 0.35, 0.04), glassMat, -0.1, 1.07, 0.9);
+      add(new THREE.BoxGeometry(1.55, 0.35, 0.04), glassMat, -0.1, 1.07, -0.9);
+
+      // headlights
+      add(new THREE.BoxGeometry(0.06, 0.1, 0.42), lightMat, -1.94, 0.72, 0.56);
+      add(new THREE.BoxGeometry(0.06, 0.1, 0.42), lightMat, -1.94, 0.72, -0.56);
+      // DRL strip
+      add(new THREE.BoxGeometry(0.04, 0.04, 1.4), lightMat, -1.94, 0.58);
+      // tail lights
+      add(new THREE.BoxGeometry(0.05, 0.1, 0.5), tailMat, 1.93, 0.68, 0.62);
+      add(new THREE.BoxGeometry(0.05, 0.1, 0.5), tailMat, 1.93, 0.68, -0.62);
+
+      // wheels
+      const wheelPositions = [[-1.2, 0, 1.02], [-1.2, 0, -1.02], [1.15, 0, 1.02], [1.15, 0, -1.02]];
+      wheelPositions.forEach(([wx, wy, wz]) => {
+        const wg = new THREE.Group();
+        wg.position.set(wx, 0.38, wz);
+
+        const tire = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.38, 0.24, 40), tireMat);
+        tire.rotation.x = Math.PI / 2;
+        wg.add(tire);
+
+        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.25, 40), rimMat);
+        rim.rotation.x = Math.PI / 2;
+        wg.add(rim);
+
+        // spokes
+        for (let i = 0; i < 5; i++) {
+          const spoke = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.46, 0.04), rimMat);
+          spoke.rotation.z = (i / 5) * Math.PI * 2;
+          wg.add(spoke);
+        }
+        car.add(wg);
+      });
+
+      car.position.y = 0.01;
+      scene.add(car);
+
+      loading.style.opacity = '0';
+      setTimeout(() => loading.style.display = 'none', 600);
+    }
+
+    // ── RESIZE ──
+    const resizeObserver = new ResizeObserver(() => {
+      renderer.setSize(stage.clientWidth, stage.clientHeight);
+      camera.aspect = stage.clientWidth / stage.clientHeight;
+      camera.updateProjectionMatrix();
+    });
+    resizeObserver.observe(stage);
+
+    // ── STOP AUTO-ROTATE ON DRAG ──
+    let dragTimer;
+    renderer.domElement.addEventListener('pointerdown', () => {
+      controls.autoRotate = false;
+      clearTimeout(dragTimer);
+    });
+    renderer.domElement.addEventListener('pointerup', () => {
+      dragTimer = setTimeout(() => { controls.autoRotate = true; }, 2500);
+    });
+
+    // ── ANIMATE ──
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
 
   <!-- MOBILE BOTTOM NAV -->
   <nav class="mobile-nav">
