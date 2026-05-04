@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies — Automatable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cs-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .cs-card:hover { box-shadow: var(--shadow); border-color: var(--border-dark); transform: translateY(-3px); }
+    .cs-card__header {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .cs-card__logo {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .cs-card__body { padding: 24px 28px; }
+    .cs-card__company { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .cs-card__title { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0; }
+    .cs-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 20px; margin-bottom: 20px; }
+    .cs-stat { background: var(--surface-2); border-radius: 10px; padding: 12px; text-align: center; }
+    .cs-stat__num { font-size: 1.3rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+    .cs-stat__label { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+    .cs-card__quote { font-size: 0.88rem; font-style: italic; color: var(--text-2); line-height: 1.7; border-left: 3px solid var(--green-mid); padding-left: 14px; margin: 16px 0; }
+    .cs-card__footer { padding: 16px 28px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn {
+      padding: 7px 16px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--green);
+      color: var(--green);
+      background: var(--green-pale);
+    }
+    .featured-cs {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow);
+    }
+    .featured-cs__content { padding: 48px; }
+    .featured-cs__visual {
+      background: var(--surface-2);
+      border-left: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    @media(max-width:768px){ .featured-cs { grid-template-columns: 1fr; } .featured-cs__visual { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">⚡</div>
+        Automatable
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html" class="active">Case Studies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="contact.html" class="btn btn--outline btn--sm">Book a Call</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="label">Case Studies</div>
+      <h1>Real results from real clients</h1>
+      <p>Explore how we've helped businesses across industries save hundreds of hours and generate measurable ROI through automation.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- FEATURED -->
+      <div class="featured-cs">
+        <div class="featured-cs__content">
+          <span class="label">Featured Case Study</span>
+          <h2 style="font-size:1.8rem;margin-bottom:1rem;">How Stackr Logistics saved 31 hours a week with automated dispatch</h2>
+          <p style="margin-bottom:2rem;">Stackr was manually processing every invoice, dispatch order, and driver notification. We built a fully automated pipeline from order intake to driver assignment — cutting their admin overhead by 78%.</p>
+          <div style="display:flex;gap:32px;margin-bottom:2rem;padding:24px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
+            <div>
+              <div style="font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-0.03em;">31hrs</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);">Saved per week</div>
+            </div>
+            <div>
+              <div style="font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-0.03em;">5.2x</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);">ROI in 6 months</div>
+            </div>
+            <div>
+              <div style="font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-0.03em;">78%</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);">Admin reduction</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn--primary btn--md">Get Similar Results →</a>
+        </div>
+        <div class="featured-cs__visual">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Automation Flow</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;background:var(--green-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">📦</span>
+              <div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Order received</div><div style="font-size:0.65rem;color:var(--text-muted);">Via web form / API</div></div>
+              <span class="badge badge--green" style="margin-left:auto;">Auto</span>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">🧾</span>
+              <div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Invoice generated</div><div style="font-size:0.65rem;color:var(--text-muted);">PDF created & emailed</div></div>
+              <span class="badge badge--green" style="margin-left:auto;">Auto</span>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;background:#fef9c3;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">🚚</span>
+              <div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Driver assigned</div><div style="font-size:0.65rem;color:var(--text-muted);">Based on route logic</div></div>
+              <span class="badge badge--green" style="margin-left:auto;">Auto</span>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;background:var(--green-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">📲</span>
+              <div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Customer notified</div><div style="font-size:0.65rem;color:var(--text-muted);">SMS + email dispatch</div></div>
+              <span class="badge badge--green" style="margin-left:auto;">Auto</span>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <span style="width:28px;height:28px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">📊</span>
+              <div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Dashboard updated</div><div style="font-size:0.65rem;color:var(--text-muted);">Real-time reporting</div></div>
+              <span class="badge badge--green" style="margin-left:auto;">Auto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCards('all',this)">All Industries</button>
+        <button class="filter-btn" onclick="filterCards('finance',this)">Finance</button>
+        <button class="filter-btn" onclick="filterCards('saas',this)">SaaS</button>
+        <button class="filter-btn" onclick="filterCards('marketing',this)">Marketing</button>
+        <button class="filter-btn" onclick="filterCards('operations',this)">Operations</button>
+        <button class="filter-btn" onclick="filterCards('consulting',this)">Consulting</button>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div class="grid-3" id="csGrid">
+
+        <div class="cs-card" data-industry="finance">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">Finance · Nexus Capital</div>
+              <div class="cs-card__title">Deal flow automation & CRM sync</div>
+            </div>
+            <div class="cs-card__logo" style="background:#dcfce7;">💼</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">22hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">4.1x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">3wks</div><div class="cs-stat__label">To deploy</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Nexus was manually logging every inbound deal into their CRM. We automated the entire intake process — from email parsing to Salesforce entry, task assignment, and analyst notification.</p>
+            <div class="cs-card__quote">"We used to spend 4 hours every Monday just updating Salesforce. That time is now spent on actual analysis."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--green">Live</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+        <div class="cs-card" data-industry="saas">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">SaaS · Veriflow</div>
+              <div class="cs-card__title">Trial onboarding email automation</div>
+            </div>
+            <div class="cs-card__logo" style="background:#dbeafe;">🚀</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">15hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">3.8x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">+34%</div><div class="cs-stat__label">Conversion</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Veriflow's trial-to-paid conversion was suffering because onboarding emails were sent manually and inconsistently. We built a behaviour-triggered sequence that adapted to each user's in-app actions.</p>
+            <div class="cs-card__quote">"Our conversion went from 12% to 16% in two months. The automation paid for itself in the first week."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--green">Live</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+        <div class="cs-card" data-industry="marketing">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">Marketing · Luminary Agency</div>
+              <div class="cs-card__title">Automated client reporting dashboard</div>
+            </div>
+            <div class="cs-card__logo" style="background:#fef9c3;">📊</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">18hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">2.9x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">24/7</div><div class="cs-stat__label">Live data</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Luminary was spending every Friday manually building client reports from Google Ads, Meta, and GA4. We built a single live dashboard that auto-updates and sends a PDF summary every Monday morning.</p>
+            <div class="cs-card__quote">"Friday afternoons are finally free. Our clients get better reports and we spend zero time building them."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--green">Live</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+        <div class="cs-card" data-industry="operations">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">Operations · Stackr Logistics</div>
+              <div class="cs-card__title">Invoice & dispatch automation system</div>
+            </div>
+            <div class="cs-card__logo" style="background:#f3e8ff;">🚚</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">31hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">5.2x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">78%</div><div class="cs-stat__label">Admin cut</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Full end-to-end automation from order receipt to driver dispatch, including invoice generation, customer SMS notifications, and real-time tracking dashboard for operations managers.</p>
+            <div class="cs-card__quote">"We scaled from 80 to 200 orders a day without hiring a single extra admin person."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--green">Live</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+        <div class="cs-card" data-industry="consulting">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">Consulting · Orbiq</div>
+              <div class="cs-card__title">Proposal generation & follow-up</div>
+            </div>
+            <div class="cs-card__logo" style="background:#fce7f3;">💡</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">12hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">2.6x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">+28%</div><div class="cs-stat__label">Close rate</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Orbiq's consultants were spending 2+ hours crafting each proposal from scratch. We built a system that pulls from their CRM, generates a tailored proposal draft, and triggers a 5-step follow-up sequence.</p>
+            <div class="cs-card__quote">"The follow-up automation alone increased our close rate by 28%. Proposals now take 20 minutes, not 2 hours."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--blue">In Progress</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+        <div class="cs-card" data-industry="saas">
+          <div class="cs-card__header">
+            <div>
+              <div class="cs-card__company">SaaS · Praxis Tools</div>
+              <div class="cs-card__title">Support ticket triage & routing</div>
+            </div>
+            <div class="cs-card__logo" style="background:#dcfce7;">🎧</div>
+          </div>
+          <div class="cs-card__body">
+            <div class="cs-stats">
+              <div class="cs-stat"><div class="cs-stat__num">20hrs</div><div class="cs-stat__label">Saved/week</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">3.4x</div><div class="cs-stat__label">ROI</div></div>
+              <div class="cs-stat"><div class="cs-stat__num">-62%</div><div class="cs-stat__label">Response time</div></div>
+            </div>
+            <p style="font-size:0.88rem;line-height:1.7;">Praxis was manually triaging 300+ support tickets per day. We built an AI classifier that reads each ticket, assigns a category and priority, routes it to the right agent, and drafts a suggested reply.</p>
+            <div class="cs-card__quote">"First response time dropped from 6 hours to 90 minutes. Our CSAT score jumped from 71 to 89."</div>
+          </div>
+          <div class="cs-card__footer">
+            <span class="badge badge--green">Live</span>
+            <a href="contact.html" class="btn btn--outline btn--sm">Build Similar →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <h2>See yourself in these results?</h2>
+        <p>Book a call and we'll show you exactly what we'd build for your business.</p>
+        <a href="contact.html" class="btn btn--white btn--lg">Book a Free Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo"><div class="nav__logo-icon">⚡</div>Automatable</a>
+          <p>We build AI automation systems that eliminate repetitive work and multiply your team's output.</p>
+        </div>
+        <div><div class="footer__col-title">Company</div><div class="footer__col"><a href="about.html">About Us</a><a href="case-studies.html">Case Studies</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div></div>
+        <div><div class="footer__col-title">Services</div><div class="footer__col"><a href="services.html">AI Workflows</a><a href="services.html">Integrations</a><a href="services.html">Outreach</a><a href="services.html">Dashboards</a></div></div>
+        <div><div class="footer__col-title">Connect</div><div class="footer__col"><a href="#">LinkedIn</a><a href="#">Twitter / X</a><a href="contact.html">hello@automatable.io</a></div></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Automatable. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function filterCards(industry, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.cs-card').forEach(card => {
+        card.style.display = (industry === 'all' || card.dataset.industry === industry) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

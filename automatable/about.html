@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Automatable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .team-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .team-card__photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .team-card__body { padding: 20px; }
+    .team-card__name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .team-card__role { font-size: 0.8rem; color: var(--green); font-weight: 600; margin-bottom: 10px; }
+    .team-card__bio { font-size: 0.84rem; line-height: 1.65; }
+    .value-card {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .value-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .value-icon {
+      width: 44px; height: 44px;
+      background: var(--green-pale);
+      border: 1px solid var(--green-mid);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: var(--green-mid);
+    }
+    .timeline-item { display: flex; gap: 24px; padding-bottom: 40px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 2px solid var(--green-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-item.active .timeline-dot {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+    .timeline-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: var(--green); text-transform: uppercase; margin-bottom: 4px; }
+    .timeline-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .timeline-desc { font-size: 0.85rem; line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">⚡</div>
+        Automatable
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="contact.html" class="btn btn--outline btn--sm">Book a Call</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="label">About Us</div>
+      <h1>We believe your team's time is too valuable for manual work</h1>
+      <p>Automatable was founded to solve one problem: brilliant people wasting hours on tasks that software should be doing.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div>
+          <div class="label">Our Mission</div>
+          <h2 style="margin-bottom:1.25rem;">Give businesses back the one resource they can't get more of</h2>
+          <p style="margin-bottom:1.5rem;">Every business has processes that someone is doing manually right now — copy-pasting data, writing the same emails, generating the same reports. We exist to end that.</p>
+          <p style="margin-bottom:1.5rem;">We're not a software company. We're an automation agency — which means we take full ownership of understanding your business, designing the solution, and delivering it working. You don't need to know what Make or n8n is. That's our job.</p>
+          <p>Our clients get back an average of 40 hours per week. They use that time to grow, to think, and to do the work they actually started their business to do.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:var(--green);border-radius:var(--radius-lg);padding:28px;color:white;">
+            <div style="font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;">38</div>
+            <div style="font-size:0.85rem;opacity:0.85;">Businesses automated</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
+            <div style="font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);margin-bottom:6px;">120+</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Automations deployed</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
+            <div style="font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);margin-bottom:6px;">$2.4M</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Labour cost saved</div>
+          </div>
+          <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
+            <div style="font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);margin-bottom:6px;">3.2x</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Average client ROI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="label">Our Values</div>
+      <h2 class="section-title">How we work</h2>
+      <p class="section-sub">The principles behind every project we take on.</p>
+      <div class="grid-2">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <div>
+            <h4 style="margin-bottom:6px;">Outcome obsessed</h4>
+            <p style="font-size:0.88rem;">We measure success by your ROI, not by the number of automations we ship. If it's not saving you time or making you money, we haven't done our job.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔍</div>
+          <div>
+            <h4 style="margin-bottom:6px;">Deep discovery first</h4>
+            <p style="font-size:0.88rem;">We spend more time understanding your business than most agencies spend on the whole project. You can't automate what you don't understand.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <div>
+            <h4 style="margin-bottom:6px;">Speed without shortcuts</h4>
+            <p style="font-size:0.88rem;">We move fast because we've done this many times. But we never skip testing, documentation, or handover. Speed and quality aren't opposites.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div>
+            <h4 style="margin-bottom:6px;">Long-term partnerships</h4>
+            <p style="font-size:0.88rem;">Most of our clients come back for more. We're not interested in one-off projects — we want to be the automation team you grow with for years.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📖</div>
+          <div>
+            <h4 style="margin-bottom:6px;">We teach, not just deliver</h4>
+            <p style="font-size:0.88rem;">Every project includes full documentation and training. You should understand what we built and be able to make basic changes without calling us.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💬</div>
+          <div>
+            <h4 style="margin-bottom:6px;">Radical transparency</h4>
+            <p style="font-size:0.88rem;">We tell you what's possible, what isn't, and how long it really takes. No overselling, no hidden complexity, no surprise invoices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section">
+    <div class="container">
+      <div class="label">The Team</div>
+      <h2 class="section-title">The people behind your automation</h2>
+      <p class="section-sub">A small, senior team with deep expertise across AI, operations, and systems design.</p>
+      <div class="grid-3" style="margin-bottom:0;">
+        <div class="team-card">
+          <div class="team-card__photo" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);">👨‍💻</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Alex Mercer</div>
+            <div class="team-card__role">Founder & Lead Automation Architect</div>
+            <p class="team-card__bio">Former SaaS operator who got tired of watching talented teams waste hours on manual work. Built his first automation in 2019 and never looked back. Has personally delivered 80+ automation systems.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__photo" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">👩‍💼</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Sarah Chen</div>
+            <div class="team-card__role">Head of Strategy & Client Success</div>
+            <p class="team-card__bio">Ex-management consultant with a passion for process optimisation. Runs discovery calls and scoping. If there's an automation opportunity in your business, Sarah will find it within the first 30 minutes.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__photo" style="background:linear-gradient(135deg,#fef9c3,#fde68a);">👨‍🔧</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Tom Okafor</div>
+            <div class="team-card__role">Senior Automation Engineer</div>
+            <p class="team-card__bio">Full-stack developer turned automation specialist. Expert in Make, n8n, Zapier, and custom API integrations. Tom has connected over 200 different tools and apps across client projects.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__photo" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">👩‍🎨</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Priya Nair</div>
+            <div class="team-card__role">AI & Prompt Engineer</div>
+            <p class="team-card__bio">Specialises in building reliable AI agents and LLM pipelines. Background in NLP and machine learning. Makes sure every AI workflow is accurate, consistent, and production-ready.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__photo" style="background:linear-gradient(135deg,#f3e8ff,#ddd6fe);">👨‍📊</div>
+          <div class="team-card__body">
+            <div class="team-card__name">James Wright</div>
+            <div class="team-card__role">Data & Dashboard Specialist</div>
+            <p class="team-card__bio">Ex-data analyst who now builds the reporting systems he always wished he had. Expert in connecting data sources and building dashboards that actually get used.</p>
+          </div>
+        </div>
+        <div class="team-card" style="background:var(--surface-2);border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;min-height:200px;">
+          <div style="font-size:2rem;margin-bottom:12px;">🌟</div>
+          <div style="font-weight:700;color:var(--text);margin-bottom:8px;">We're hiring</div>
+          <p style="font-size:0.85rem;margin-bottom:16px;">Looking for automation engineers and AI specialists to join the team.</p>
+          <a href="contact.html" class="btn btn--outline btn--sm">View Openings</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section section--gray">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+        <div>
+          <div class="label">Our Story</div>
+          <h2 style="margin-bottom:1.25rem;">From one automation to a full agency</h2>
+          <p style="margin-bottom:1.5rem;">Automatable started as a one-person consultancy in 2022. Today we're a team of 5 with clients across 3 continents — and we're just getting started.</p>
+          <a href="contact.html" class="btn btn--primary btn--md">Work With Us →</a>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">🌱</div>
+            <div>
+              <div class="timeline-year">2022</div>
+              <div class="timeline-title">First client, first automation</div>
+              <p class="timeline-desc">Alex built a CRM integration for a friend's e-commerce business and saved them 15 hours a week. The idea for Automatable was born.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">📈</div>
+            <div>
+              <div class="timeline-year">2023</div>
+              <div class="timeline-title">First 10 clients & growing team</div>
+              <p class="timeline-desc">Sarah and Tom joined. Delivered 40+ automations. Started focusing exclusively on B2B clients with 10–200 employees.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🏆</div>
+            <div>
+              <div class="timeline-year">2024</div>
+              <div class="timeline-title">$1M in client savings, 5-star reputation</div>
+              <p class="timeline-desc">Crossed $1M in documented client savings. Expanded to AI-native workflows with Priya and James joining the team.</p>
+            </div>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-dot">⚡</div>
+            <div>
+              <div class="timeline-year">2026</div>
+              <div class="timeline-title">120+ automations, $2.4M saved</div>
+              <p class="timeline-desc">38 active clients. $2.4M in documented labour savings. Building towards our vision of becoming the go-to automation partner for growing businesses worldwide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <h2>Want to work with us?</h2>
+        <p>Book a free discovery call and let's explore what automation can do for your business.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn--white btn--lg">Book a Free Call</a>
+          <a href="case-studies.html" class="btn btn--outline-white btn--lg">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo"><div class="nav__logo-icon">⚡</div>Automatable</a>
+          <p>We build AI automation systems that eliminate repetitive work and multiply your team's output.</p>
+        </div>
+        <div><div class="footer__col-title">Company</div><div class="footer__col"><a href="about.html">About Us</a><a href="case-studies.html">Case Studies</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div></div>
+        <div><div class="footer__col-title">Services</div><div class="footer__col"><a href="services.html">AI Workflows</a><a href="services.html">Integrations</a><a href="services.html">Outreach</a><a href="services.html">Dashboards</a></div></div>
+        <div><div class="footer__col-title">Connect</div><div class="footer__col"><a href="#">LinkedIn</a><a href="#">Twitter / X</a><a href="contact.html">hello@automatable.io</a></div></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Automatable. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
